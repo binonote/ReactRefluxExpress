@@ -1,0 +1,4 @@
+/ingredient-server/node_modules
+/ingredient-reflux/node_modules
+/ingredient-reflux/bundle.js
+/ingredient-reflux/npm-debug.log
