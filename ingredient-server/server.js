@@ -1,4 +1,5 @@
 'use strict';
+var ciao = require('./src/greeting/greet');
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -36,8 +37,12 @@ var ingredients = [
 
 app.get('/ingredients', function(req, res) {
     console.log("GET From SERVER");
-    res.send(ingredients);    
+    res.send(ingredients);
 });
+
+app.get('/greeting', (req, res) => {
+  res.send(ciao());
+})
 
 app.post('/ingredients', function(req, res) {
     var ingredient = req.body;
