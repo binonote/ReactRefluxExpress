@@ -1,5 +1,6 @@
 'use strict';
-var ciao = require('./src/greeting/greet');
+var greet = require('./src/js/greet');
+var ingredients = require('./src/js/ingredients');
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -16,32 +17,13 @@ app.all('/*', function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-var ingredients = [
-    {
-        "id": "234kjw",
-        "text": "Chicken Eggs"
-    },
-    {
-        "id": "as82w",
-        "text": "Milk"
-    },
-    {
-        "id": "234sk1",
-        "text": "Bacon"
-    },
-    {
-        "id": "ppo3j3",
-        "text": "Frog Legs"
-    }
-];
-
 app.get('/ingredients', function(req, res) {
     console.log("GET From SERVER");
     res.send(ingredients);
 });
 
 app.get('/greeting', (req, res) => {
-  res.send(ciao());
+  res.send(greet());
 })
 
 app.post('/ingredients', function(req, res) {
